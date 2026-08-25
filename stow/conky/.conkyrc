@@ -73,11 +73,11 @@ default_color = '#cdd6f4',
 conky.text = [[
  ${goto 5}${color5}${font :size=12}SYSTEM${hr 3}${font Liberation Mono:regular:size=10}
  ${alignr}${color}${time}
- ${goto 10}${color6}Theme:${alignr}${color}everforest
+ ${goto 10}${color6}Theme:${alignr}${color}catppuccin-mocha
  ${goto 10}${color6}Hostname: ${alignr}${color}$nodename
  ${goto 10}${color6}Kernel: ${alignr}${color}$kernel
  ${goto 10}${color6}Uptime: ${alignr}${color}$uptime
- ${goto 10}${color6}Failed unit/services: ${goto 346}${color}${execi 60 sudo systemctl --failed|tail -1|awk '{print $1}'}
+ ${goto 10}${color6}Failed unit/services: ${goto 346}${color}${execi 60 systemctl --failed|tail -1|awk '{print $1}'}
 
  ${goto 5}${color5}${font :size=12}CPU${hr 3}${font Liberation Mono:regular:size=10}
  ${goto 10}${color6}Freq.:${color} ${freq_g}${color6} GHz${alignr}${color6}Usage:${color} ${cpu cpu0}%
@@ -119,7 +119,7 @@ ${goto 5}${color5}${font :size=12}FILE SYSTEM${hr 3}${font Liberation Mono:regul
  ${goto 10}${color6}root${goto 130}${color}${diskio_read /dev/disk/by-uuid/5d37a37e-21c9-467a-96e7-11d349342c3f}/s${alignr}${color}${diskio_write /dev/disk/by-uuid/5d37a37e-21c9-467a-96e7-11d349342c3f}/s
  ${goto 10}${color6}SN850${goto 130}${color}${diskio_read /dev/disk/by-uuid/04688feb-ffe7-4f39-aeae-334bdc222045}/s${alignr}${color}${diskio_write /dev/disk/by-uuid/04688feb-ffe7-4f39-aeae-334bdc222045}/s
  ${goto 10}${color6}SN570${goto 130}${color}${diskio_read /dev/disk/by-uuid/faba2d44-a7a9-4dd4-9542-75e98fc13360}/s${alignr}${color}${diskio_write /dev/disk/by-uuid/faba2d44-a7a9-4dd4-9542-75e98fc13360}/s
- ${goto 10}${color6}670p${goto 130}${color}${diskio_read /dev/disk/by-uuid/b7ad5472-3d25-4e7b-8e8f-bfdfa678f1a2}/s${alignr}${color}${diskio_write //dev/disk/by-uuid/b7ad5472-3d25-4e7b-8e8f-bfdfa678f1a2}/s
+ ${goto 10}${color6}670p${goto 130}${color}${diskio_read /dev/disk/by-uuid/b7ad5472-3d25-4e7b-8e8f-bfdfa678f1a2}/s${alignr}${color}${diskio_write /dev/disk/by-uuid/b7ad5472-3d25-4e7b-8e8f-bfdfa678f1a2}/s
  ${goto 10}${color6}12TB${goto 130}${color}${diskio_read /dev/disk/by-uuid/fcadd4d9-57e5-436b-b6eb-81ef013e23ad}/s${alignr}${color}${diskio_write /dev/disk/by-uuid/fcadd4d9-57e5-436b-b6eb-81ef013e23ad}/s
  ${goto 10}${color6}10TB${goto 130}${color}${diskio_read /dev/disk/by-uuid/4ca40cc3-4564-4bc1-a5b7-580153bd17ab}/s${alignr}${color}${diskio_write /dev/disk/by-uuid/4ca40cc3-4564-4bc1-a5b7-580153bd17ab}/s
  ${goto 10}${color6}8TB${goto 130}${color}${diskio_read /dev/disk/by-uuid/75a6a914-aa90-4eab-ab43-ce8938f6df04}/s${alignr}${color}${diskio_write /dev/disk/by-uuid/75a6a914-aa90-4eab-ab43-ce8938f6df04}/s
@@ -127,13 +127,13 @@ ${goto 5}${color5}${font :size=12}FILE SYSTEM${hr 3}${font Liberation Mono:regul
  
  ${color6}${goto 210}used${goto 265}total
  ${goto 10}${color6}/ ${goto 95}${color}${fs_type /} ${goto 202}${color}${fs_used /}${alignr}${fs_size /} ${color}${fs_bar 10,40 /}
- ${goto 10}${color6}SN850 ${goto 95}${color}${fs_type /mnt/SN850}${goto 155}${color}${execi 30 sudo nvme smart-log /dev/nvme0 | grep '^temperature'|cut -c 18-19}°C${goto 202}${color} ${fs_used /mnt/SN850}${alignr}${fs_size /mnt/SN850} ${color}${fs_bar 10,40 /mnt/SN850}
- ${goto 10}${color6}SN570 ${goto 95}${color}${fs_type /mnt/SN570}${goto 155}${color}${execi 30 sudo nvme smart-log /dev/nvme2 | grep '^temperature'|cut -c 18-19}°C${goto 202}${color} ${fs_used /mnt/SN570}${alignr}${fs_size /mnt/SN570} ${color}${fs_bar 10,40 /mnt/SN570}
- ${goto 10}${color6}670p ${goto 95}${color}${fs_type /mnt/670p}${goto 155}${color}${execi 30 sudo nvme smart-log /dev/nvme1 | grep '^temperature'|cut -c 18-19}°C${goto 202}${color}${fs_used /mnt/670p}${alignr}${fs_size /mnt/670p} ${color}${fs_bar 10,40 /mnt/670p}
- ${goto 10}${color6}12TB ${goto 95}${color}${fs_type /mnt/12TB}${goto 155}${color}${execi 30 sudo smartctl -A /dev/sda | awk 'FNR==22 {print $10}'}°C${goto 202}${color}${fs_used /mnt/12TB}${alignr}${fs_size /mnt/12TB} ${color}${fs_bar 10,40 /mnt/12TB}
- ${goto 10}${color6}10TB ${goto 95}${color}${fs_type /mnt/10TB}${goto 155}${color}${execi 30 sudo smartctl -A /dev/sdd | awk 'FNR==22 {print $10}'}°C${goto 202}${color}${fs_used /mnt/10TB}${alignr}${fs_size /mnt/10TB} ${color}${fs_bar 10,40 /mnt/10TB}
- ${goto 10}${color6}8TB ${goto 95}${color}${fs_type /mnt/8TB}${goto 155}${color}${execi 30 sudo smartctl -A /dev/sdc | awk 'FNR==19 {print $10}'}°C${goto 202}${color}${fs_used /mnt/8TB}${alignr}${fs_size /mnt/8TB} ${color}${fs_bar 10,40 /mnt/8TB}
- ${goto 10}${color6}4TB ${goto 95}${color}${fs_type /mnt/4TB}${goto 155}${color}${execi 30 sudo smartctl -A /dev/sdb | awk 'FNR==19 {print $10}'}°C${goto 202}${color}${fs_used /mnt/4TB}${alignr}${fs_size /mnt/4TB} ${color}${fs_bar 10,40 /mnt/4TB}
+ ${goto 10}${color6}SN850 ${goto 95}${color}${fs_type /mnt/SN850}${goto 155}${color}${execi 30 awk '{print int($1/1000 + 0.5) "°C"}' /sys/class/hwmon/hwmon3/temp1_input}${goto 202}${color} ${fs_used /mnt/SN850}${alignr}${fs_size /mnt/SN850} ${color}${fs_bar 10,40 /mnt/SN850}
+ ${goto 10}${color6}SN570 ${goto 95}${color}${fs_type /mnt/SN570}${goto 155}${color}${execi 30 awk '{print int($1/1000 + 0.5) "°C"}' /sys/class/hwmon/hwmon1/temp1_input}${goto 202}${color} ${fs_used /mnt/SN570}${alignr}${fs_size /mnt/SN570} ${color}${fs_bar 10,40 /mnt/SN570}
+ ${goto 10}${color6}670p ${goto 95}${color}${fs_type /mnt/670p}${goto 155}${color}${execi 30 awk '{print int($1/1000 + 0.5) "°C"}' /sys/class/hwmon/hwmon2/temp1_input}${goto 202}${color}${fs_used /mnt/670p}${alignr}${fs_size /mnt/670p} ${color}${fs_bar 10,40 /mnt/670p}
+ ${goto 10}${color6}12TB ${goto 95}${color}${fs_type /mnt/12TB}${goto 155}${color}${execi 30 smartctl -A /dev/sda | awk 'FNR==22 {print $10}'}°C${goto 202}${color}${fs_used /mnt/12TB}${alignr}${fs_size /mnt/12TB} ${color}${fs_bar 10,40 /mnt/12TB}
+ ${goto 10}${color6}10TB ${goto 95}${color}${fs_type /mnt/10TB}${goto 155}${color}${execi 30 smartctl -A /dev/sdd | awk 'FNR==22 {print $10}'}°C${goto 202}${color}${fs_used /mnt/10TB}${alignr}${fs_size /mnt/10TB} ${color}${fs_bar 10,40 /mnt/10TB}
+ ${goto 10}${color6}8TB ${goto 95}${color}${fs_type /mnt/8TB}${goto 155}${color}${execi 30 smartctl -A /dev/sdc | awk 'FNR==19 {print $10}'}°C${goto 202}${color}${fs_used /mnt/8TB}${alignr}${fs_size /mnt/8TB} ${color}${fs_bar 10,40 /mnt/8TB}
+ ${goto 10}${color6}4TB ${goto 95}${color}${fs_type /mnt/4TB}${goto 155}${color}${execi 30 smartctl -A /dev/sdb | awk 'FNR==19 {print $10}'}°C${goto 202}${color}${fs_used /mnt/4TB}${alignr}${fs_size /mnt/4TB} ${color}${fs_bar 10,40 /mnt/4TB}
  
 ${goto 5}${color5}${font :size=12}NETWORK${hr 3}${font Liberation Mono:regular:size=10}
  ${goto 10}${color6}External IP: ${color}${execi 60 wget http://ipinfo.io/ip -qO -}${alignr}${color6}VPN: ${if_up wg0-mullvad}${color4}ON${else}${color3}OFF${endif}
