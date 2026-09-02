@@ -54,26 +54,26 @@ own_window_title = 'system_conky',
 own_window_type = 'desktop',
 format_human_readable = true,
 
-	color0 = '#1e1e2e', --@base (background)
-	color1 = '#cdd6f4', --@text
+	color0 = '#303446', --@base (background)
+	color1 = '#c6d0f5', --@text
 	color2 = '#51576d', --black
-	color3 = '#f38ba8', --@red (DISCONNECED)
-	color4 = '#a6e3a1', --@green (CONNECTED)
-    color5 = '#89b4fa', --@blue (TITLES)
-    color6 = '#bac2de', --@subtext 1 (LABELS)
+	color3 = '#e78284', --@red (DISCONNECED)
+	color4 = '#a6d189', --@green (CONNECTED)
+    color5 = '#8caaee', --@blue (TITLES)
+    color6 = '#b5bfe2', --@subtext 1 (LABELS)
 	color7 = '#f4b8e4', --magenta
-	color8 = '#94e2d5', --@teal (GRAPHS)
+	color8 = '#81c8be', --@teal (GRAPHS)
 	color9 = '#b5bfe2', --white
 
-own_window_colour = '#1e1e2e',
-default_color = '#cdd6f4',
+own_window_colour = '#303446',
+default_color = '#c6d0f5',
 
 };
 
 conky.text = [[
  ${goto 5}${color5}${font :size=12}SYSTEM${hr 3}${font Liberation Mono:regular:size=10}
  ${alignr}${color}${time}
- ${goto 10}${color6}Theme:${alignr}${color}catppuccin-mocha
+ ${goto 10}${color6}Theme:${alignr}${color}catppuccin-frappe
  ${goto 10}${color6}Hostname: ${alignr}${color}$nodename
  ${goto 10}${color6}Kernel: ${alignr}${color}$kernel
  ${goto 10}${color6}Uptime: ${alignr}${color}$uptime

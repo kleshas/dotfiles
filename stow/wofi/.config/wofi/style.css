@@ -1,17 +1,17 @@
-/* Optimized Catppuccin Mocha - Blue Accent */
+/* Optimized Catppuccin Frappé - Blue Accent */
 * {
   font-family: "JetBrainsMono Nerd Font", monospace;
   font-size: 18px;
 }
 
 window {
-  background-color: #1e1e2e; /* Mocha Base */
-  border: 2px solid #89b4fa; /* Mocha Blue */
+  background-color: #303446; /* Frappé Base */
+  border: 2px solid #8caaee; /* Frappé Blue */
 }
 
 #outer-box {
   padding: 10px;
-  background-color: #1e1e2e;
+  background-color: #303446;
 }
 
 #inner-box {
@@ -19,26 +19,26 @@ window {
 }
 
 #input {
-  background-color: #313244; /* Mocha Surface0 */
-  color: #cdd6f4; /* Mocha Text */
-  border: 1px solid #45475a; /* Mocha Surface1 */
+  background-color: #414559; /* Frappé Surface0 */
+  color: #c6d0f5; /* Frappé Text */
+  border: 1px solid #51576d; /* Frappé Surface1 */
   padding: 8px 12px;
   margin: 10px;
   border-radius: 35px;
-  outline: 1px solid #585b70; /* Mocha Surface2 */
+  outline: 1px solid #626880; /* Frappé Surface2 */
 }
 
 #input:focus {
-  border-color: #89b4fa; /* Mocha Blue */
+  border-color: #8caaee; /* Frappé Blue */
 }
 
 #input image {
-  color: #89b4fa;
+  color: #8caaee;
   -gtk-icon-effect: none;
 }
 
 #input placeholder {
-  color: #6c7086; /* Mocha Overlay0 */
+  color: #737994; /* Frappé Overlay0 */
 }
 
 #scroll {
@@ -46,23 +46,23 @@ window {
 }
 
 #entry {
-  background-color: #1e1e2e;
+  background-color: #303446;
 }
 
 #entry:selected {
-  background-color: #313244; /* Mocha Surface0 */
+  background-color: #414559; /* Frappé Surface0 */
 }
 
 #entry:hover {
-  background-color: #45475a; /* Mocha Surface1 */
+  background-color: #51576d; /* Frappé Surface1 */
 }
 
 #text {
-  color: #cdd6f4; /* Mocha Text */
+  color: #c6d0f5; /* Frappé Text */
 }
 
 #text:selected {
-  color: #89b4fa; /* Mocha Blue */
+  color: #8caaee; /* Frappé Blue */
 }
 
 #img {
@@ -79,5 +79,5 @@ undershoot.bottom {
 }
 
 scrollbar slider {
-  background-color: #89b4fa;
+  background-color: #8caaee;
 }
