@@ -152,7 +152,8 @@ bindsym $mod+Shift+w exec /home/bhava/.dotfiles/.scripts/swaybgwallpaper.sh
 bindsym $mod+Shift+s exec conky -c ~/.conkyrc 
 bindsym $mod+Shift+x exec $term -e /home/bhava/.dotfiles/.scripts/kamvas.sh 
 bindsym $mod+Shift+b exec $term -e /home/bhava/.dotfiles/.scripts/backup.sh 
-bindsym Control+Mod1+L exec swaylock -S --effect-blur 15x5 
+# bindsym Control+Mod1+L exec swaylock -S --effect-blur 15x5
+bindsym Control+Mod1+L exec 'swaylock & sleep 2 && if pgrep swaylock > /dev/null; then swaymsg "output * dpms off"; fi'
 bindsym $mod+Print exec grim -g "$(slurp)" /mnt/SN850/STANDALONES/Pictures/screenshots/$(date +%Y-%m-%d_%H-%m-%s.png) 
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle 
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 1%- 
@@ -190,7 +191,7 @@ default_border pixel 2
 
 set $gnome-schema org.gnome.desktop.interface 
 exec_always { 
-    gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Amber' 
+    gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Amber'
 } 
 
 exec wal && feh --bg-tile "$(< "${HOME}/.cache/wal/wal")" && cp $(cat ~/.cache/wal/wal) ~/.cache/wal/wal.jpg && bash ~/.dotfiles/.scripts/httpserver.sh 
