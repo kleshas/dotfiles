@@ -1,0 +1,36 @@
+# ==============================================================================
+# Mako Custom Notification Architecture Template
+# ==============================================================================
+
+# --- Core Dimensions and Positioning ---
+max-visible=5
+output=DP-4
+anchor=top-right
+margin=20
+
+# --- Geometry Design Rules ---
+width=350
+height=110
+border-size=2
+border-radius=8
+padding=15
+
+# --- Typography & Theme Core Engine ---
+font=JetBrainsMono Nerd
+background-color=#0f0504
+text-color=#8C9B69
+border-color=#798A84
+progress-color=source #ff0000
+
+# --- Functional Timeout Values ---
+default-timeout=6000
+ignore-timeout=0
+
+[urgency=low]
+border-color=#a6e3a1
+default-timeout=4000
+
+[urgency=high]
+border-color=#f38ba8
+text-color=#f38ba8
+default-timeout=0

@@ -1,13 +1,11 @@
-@import url("/home/bhava/.cache/wal/colors-waybar.css");
-
 * {
     font-family: "JetBrainsMono Nerd Font";
     font-size: 14px;
 }
 
 window#waybar {
-    background-color: @color0;
-    color: @color1;
+    background-color: @color0};
+    color: @color1};
 }
 
 /* Base style for the window title */
@@ -45,20 +43,20 @@ button {
 }
 
 #workspaces button:hover {
-    background-color: @color2;
-    color: @color0;
+    background-color: @color3;
+    color: @color8;
     font-weight: bold;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-    background-color: @color3;
-    color: @color0;
+    background-color: @color0;
+    color: @color1;
     font-weight: bold;
 }
 
 #workspaces button.urgent {
-    background-color: #775500;
+    background-color: @color12;
     color: @color0;
 }
 
