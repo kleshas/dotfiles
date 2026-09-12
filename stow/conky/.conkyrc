@@ -19,7 +19,7 @@ conky.config = {
     minimum_width = 350,
     maximum_width = 350,
     border_outer_margin = 1,
-    border_width = 1,
+    border_width = 2,
     default_bar_width = 250,
     default_bar_height = 10,
     default_gauge_height = 25,
@@ -46,22 +46,23 @@ conky.config = {
     xftalpha = 1,
     own_window = true,
     own_window_class = 'Conky',
+    own_window_colour = '#80000000',
     own_window_title = 'system_conky',
-    own_window_type = 'desktop',
+    own_window_type = 'normal',
 
-    color0 = '#0f0504',
-    color1 = '#8C9B69',
-    color2 = '#708B49',
-    color3 = '#798A84',
-    color4 = '#656C53',
-    color5 = '#9EA79D',
-    color6 = '#3A5C49',
-    color7 = '#d1d8d9',
-    color8 = '#929797',
-    color9 = '#8C9B69',
+    color0 = '#0d1937',
+    color1 = '#4787B7',
+    color2 = '#447AAD',
+    color3 = '#4781B2',
+    color4 = '#3584B4',
+    color5 = '#4881B2',
+    color6 = '#3A91C3',
+    color7 = '#9ec0d9',
+    color8 = '#162b5f',
+    color9 = '#4bb1fe',
 
-    own_window_colour = '#0f0504',
-    default_color = '#8C9B69',
+    own_window_colour = '#0d1937',
+    default_color = '#4787B7',
 };
 
 conky.text = [[
@@ -76,7 +77,7 @@ ${goto 10}${color6}Failed unit/services: ${goto 346}${color1}${execi 60 systemct
 ${goto 5}${color5}${font :size=12}CPU${hr 3}${font Liberation Mono:regular:size=10}
 ${goto 10}${color6}Freq.:${color1} ${freq_g 1}${color6} GHz${alignr}${color6}Usage:${color1} ${cpu cpu0}%
 ${goto 10}${color6}Package ID0: ${color1}${hwmon coretemp temp 1}°C${goto 228}${color6}CPU fan: ${alignr}${color1}${hwmon nct6687 fan 1}rpm
-${goto 10}${alignr}${color8}${cpugraph 30,345 #0f0504 #8C9B69 -l}
+${goto 10}${alignr}${color8}${cpugraph 30,345 #0d1937 #4787B7 -l}
 
 ${goto 10}${color6}Top Processes${goto 252}PID${alignr}CPU%
 ${goto 10}${color1}${top name 1}${goto 220}${top pid 1}${alignr}${top cpu 1}
@@ -119,10 +120,10 @@ ${goto 10}${color6}/ ${goto 95}${color1}${fs_type /} ${goto 202}${color1}${fs_us
 ${goto 10}${color6}SN850 ${goto 95}${color1}${fs_type /mnt/SN850}${goto 155}${color1}${execi 30 awk '{print int($1/1000 + 0.5) "°C"}' /sys/class/hwmon/hwmon3/temp1_input}${goto 202}${color1} ${fs_used /mnt/SN850}${alignr}${fs_size /mnt/SN850} ${color1}${fs_bar 10,40 /mnt/SN850}
 ${goto 10}${color6}SN570 ${goto 95}${color1}${fs_type /mnt/SN570}${goto 155}${color1}${execi 30 awk '{print int($1/1000 + 0.5) "°C"}' /sys/class/hwmon/hwmon1/temp1_input}${goto 202}${color1} ${fs_used /mnt/SN570}${alignr}${fs_size /mnt/SN570} ${color1}${fs_bar 10,40 /mnt/SN570}
 ${goto 10}${color6}670p ${goto 95}${color1}${fs_type /mnt/670p}${goto 155}${color1}${execi 30 awk '{print int($1/1000 + 0.5) "°C"}' /sys/class/hwmon/hwmon2/temp1_input}${goto 202}${color1}${fs_used /mnt/670p}${alignr}${fs_size /mnt/670p} ${color1}${fs_bar 10,40 /mnt/670p}
-${goto 10}${color6}12TB ${goto 95}${color1}${fs_type /mnt/12TB}${goto 155}${color1}${execi 30 smartctl -A /dev/sda | awk 'FNR==22 {print $10}'}°C${goto 202}${color1}${fs_used /mnt/12TB}${alignr}${fs_size /mnt/12TB} ${color1}${fs_bar 10,40 /mnt/12TB}
-${goto 10}${color6}10TB ${goto 95}${color1}${fs_type /mnt/10TB}${goto 155}${color1}${execi 30 smartctl -A /dev/sdd | awk 'FNR==22 {print $10}'}°C${goto 202}${color1}${fs_used /mnt/10TB}${alignr}${fs_size /mnt/10TB} ${color1}${fs_bar 10,40 /mnt/10TB}
-${goto 10}${color6}8TB ${goto 95}${color1}${fs_type /mnt/8TB}${goto 155}${color1}${execi 30 smartctl -A /dev/sdc | awk 'FNR==19 {print $10}'}°C${goto 202}${color1}${fs_used /mnt/8TB}${alignr}${fs_size /mnt/8TB} ${color1}${fs_bar 10,40 /mnt/8TB}
-${goto 10}${color6}4TB ${goto 95}${color1}${fs_type /mnt/4TB}${goto 155}${color1}${execi 30 smartctl -A /dev/sdb | awk 'FNR==19 {print $10}'}°C${goto 202}${color1}${fs_used /mnt/4TB}${alignr}${fs_size /mnt/4TB} ${color1}${fs_bar 10,40 /mnt/4TB}
+${goto 10}${color6}12TB ${goto 95}${color1}${fs_type /mnt/12TB}${goto 155}${color1}${}°C${goto 202}${color1}${fs_used /mnt/12TB}${alignr}${fs_size /mnt/12TB} ${color1}${fs_bar 10,40 /mnt/12TB}
+${goto 10}${color6}10TB ${goto 95}${color1}${fs_type /mnt/10TB}${goto 155}${color1}${}°C${goto 202}${color1}${fs_used /mnt/10TB}${alignr}${fs_size /mnt/10TB} ${color1}${fs_bar 10,40 /mnt/10TB}
+${goto 10}${color6}8TB ${goto 95}${color1}${fs_type /mnt/8TB}${goto 155}${color1}${}°C${goto 202}${color1}${fs_used /mnt/8TB}${alignr}${fs_size /mnt/8TB} ${color1}${fs_bar 10,40 /mnt/8TB}
+${goto 10}${color6}4TB ${goto 95}${color1}${fs_type /mnt/4TB}${goto 155}${color1}n/a°C${goto 202}${color1}${fs_used /mnt/4TB}${alignr}${fs_size /mnt/4TB} ${color1}${fs_bar 10,40 /mnt/4TB}
 
 ${goto 5}${color5}${font :size=12}NETWORK${hr 3}${font Liberation Mono:regular:size=10}
 ${goto 10}${color6}External IP: ${color1}${execi 60 wget http://ipinfo.io/ip -qO -}${alignr}${color6}VPN: ${if_up wg0-mullvad}${color #00ff00}ON${else}${color #ff0000}OFF${endif}

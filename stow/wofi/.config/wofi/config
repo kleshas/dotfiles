@@ -1,0 +1,20 @@
+# General settings
+show=drun
+width=800
+height=500
+location=center
+orientation=vertical
+prompt=Search...
+allow_images=true
+
+# Appearance
+layer=top
+allow_markup=true
+allow_images=true
+image_size=24
+
+# Behavior
+insensitive=true
+hide_scroll=true
+no_actions=true
+print_command=true

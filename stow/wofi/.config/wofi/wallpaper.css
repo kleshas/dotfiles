@@ -1,0 +1,13 @@
+#img {
+    padding: 5px;
+    margin-right: 15px;
+    width: 140px;       /* Set thumbnail width */
+    height: 80px;       /* Set thumbnail height */
+    object-fit: cover;  /* Prevents image distortion */
+    border-radius: 6px; /* Give them soft, modern corners */
+}
+
+/* Adjust the general row height so text aligns well with the thumbnail */
+#entry {
+    padding: 10px;
+}

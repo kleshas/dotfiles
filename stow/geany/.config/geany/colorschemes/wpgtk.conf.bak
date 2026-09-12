@@ -1,0 +1,46 @@
+[theme_info]
+name=wpgtk2s
+description=A dynamic colorscheme managed by wpgtk
+version=1.0.0
+author=wpgtk
+# Geany needs this compatibility flag to accept the file layout
+compat=1.22
+
+[named_colors]
+# Primary Background and Foregrounds
+bg_base=#09050c
+bg_dark=#09050c
+fg_text=#946961
+fg_muted=#BA976C
+
+# Dynamic Accent Colors
+color_red=#aa0000
+color_green=#3FA0C9
+color_yellow=#56B3D5
+color_blue=#63BCD9
+color_magenta=#71C7DF
+color_cyan=#A8B693
+
+# Interactive UI Blocks
+ui_selection=#946961
+ui_current_line=#927C85
+
+[editor]
+# Maps UI elements using the variables defined above
+# Format: foreground;background;bold;italic
+default=fg_text;bg_base;false;false
+error=#ffffff;color_red;true;false
+selection=;ui_selection;false;false
+current_line=;ui_current_line;false;false
+line_number=fg_muted;bg_dark;false;false
+
+[styling]
+# Maps code syntax highlighting types to your theme colors
+comment=fg_muted;;false;true
+number=color_yellow;;false;false
+string=color_green;;false;false
+keyword=color_blue;;true;false
+class=color_magenta;;true;false
+function=color_cyan;;false;false
+operator=fg_text;;false;false
+

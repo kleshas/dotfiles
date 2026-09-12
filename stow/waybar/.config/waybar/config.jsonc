@@ -2,7 +2,7 @@
 {
     // "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 41, // Waybar height (to be removed for auto height)
+    "height": 40, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 20, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -14,15 +14,16 @@
         "sway/window"
     ],
     "modules-right": [
+		"custom/vpn",
         "pulseaudio",
         "clock",
         "tray"
     ],
-   
+
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    
+
     "sway/window": {
         "format": "{}",
         "max-length": 50,
@@ -33,45 +34,37 @@
             "Firefox": "firefox"
             }
     },
-	
+
     "tray": {
         "icon-size": 21,
-        "spacing": 10
+        "spacing": 15
     },
-    
-	"clock": { 
-	  "timezone" : "America/Vancouver", 
-	  "tooltip-format" : "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>", 
-	  "format" : "{:%Y %b %d %H:%M}",
-	  "format-alt": "{:%Y %b %d %H:%M}"
+
+	"sway/workspaces": {
+		 "format": "{name}",
+		 "on-click": "activate"
 	},
 
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    
+	"clock": {
+		"timezone" : "America/Vancouver",
+		"tooltip-format" : "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format" : "{:%a %Y %b %d %H:%M}",
+		"format-alt": "{:%Y %b %d %H:%M}"
+	},
+
+	"custom/vpn": {
+		"interval": 3,
+		"return-type": "json", // <-- This tells Waybar to expect JSON format
+		"format": "{}",
+		// This command wraps the text and CSS class into a clean JSON string
+		"exec": "ip add show | grep -qE '(tun0|wg0)' && echo '{\"text\": \"🔒 VPN\", \"class\": \"vpn-on\"}' || echo '{\"text\": \"🔓 No VPN\", \"class\": \"vpn-off\"}'",
+		"max-length": 15,
+		"tooltip": false
+},
+
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+                "format-icons": ["", "", ""]
         },
         "on-click": "pavucontrol"
     }
